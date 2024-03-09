@@ -21,7 +21,7 @@
 
 <button
 	class={twMerge(
-		'group/input cursor-text rounded-xl bg-neutral-100 px-3 py-1 text-start outline outline-transparent transition focus-within:outline-primary-500 relative',
+		'group/input cursor-text rounded-xl bg-neutral-100 px-3 py-1 text-start outline outline-transparent transition-all focus-within:outline-primary-500 relative',
 		className
 	)}
 	on:click={() => inputElement.focus()}

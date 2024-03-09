@@ -1,5 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
+	import DobPicker from '$lib/Components/DobPicker.svelte';
 	import GenderSelection from '$lib/Components/GenderSelection.svelte';
 	import Input from '$lib/Components/Input.svelte';
 
@@ -18,6 +19,7 @@
 		<Input class="block w-full md:w-96" label="Password" icon="f7:lock" type="password" />
 		<Input class="block w-full md:w-96" label="Confirm Password" icon="f7:lock" type="password" />
 		<GenderSelection class="w-full md:w-96" />
+		<DobPicker class="w-full md:w-96" />
 	</div>
 	<div class="w-full space-y-2 md:w-auto">
 		<button
