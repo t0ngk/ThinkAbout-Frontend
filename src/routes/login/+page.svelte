@@ -6,7 +6,7 @@
 	export let data;
 </script>
 
-<main class="font flex min-h-dvh flex-col items-center justify-center gap-10 p-8">
+<main class="flex min-h-dvh flex-col items-center justify-center gap-10 p-8 font-propmt">
 	<div class="text-center">
 		<h3 class="font-light">Welcome to</h3>
 		<h1 class="text-4xl font-bold text-primary-500">ThinkAbout</h1>
