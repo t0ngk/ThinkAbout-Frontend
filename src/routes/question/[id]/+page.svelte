@@ -1,12 +1,16 @@
 <script>
 	import Choices from '$lib/Components/Choices.svelte';
-
+	import Button from '$lib/Components/Goback.svelte';
 	/** @type {import('./$types').PageData} */
 	export let data;
 	const title = 'Who is the best?';
 </script>
 
+<div class="absolute">
+	<Button/>
+</div>
 <main class="flex min-h-dvh flex-col items-center justify-start gap-4 p-8 font-propmt">
+	<h1 class="text-2xl font-semibold text-primary-600">Questions</h1>
 	<p>{title}</p>
 	<Choices />
 	<div class="flex w-full justify-center gap-2 md:justify-end">
