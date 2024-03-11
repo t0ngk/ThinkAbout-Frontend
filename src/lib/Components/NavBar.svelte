@@ -16,7 +16,7 @@
 <div
 	class="mb-4 hidden w-full items-center justify-between border-b border-primary-500 pb-4 text-primary-500 md:flex"
 >
-	<p class="text-2xl font-semibold">ThinkAbout</p>
+	<button class="text-2xl font-semibold">ThinkAbout</button>
 	<div class="flex gap-4 text-sm">
 		<button class="transition duration-75 hover:text-primary-600 active:text-primary-700"
 			>Questions</button
