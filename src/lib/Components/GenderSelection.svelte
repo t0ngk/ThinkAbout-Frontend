@@ -6,11 +6,12 @@
 	let className = '';
 	export { className as class };
 
-	const genders = ['Male', 'Female', 'LGBTQ+', 'Prefer not to say'];
+	export { selected };
 
+	const genders = ['Male', 'Female', 'LGBTQ+', 'Prefer not to say'];
 	const {
 		elements: { trigger, menu, option, label },
-		states: { selectedLabel, open },
+		states: { selectedLabel, open, selected },
 		helpers: { isSelected }
 	} = createSelect({
 		forceVisible: true,

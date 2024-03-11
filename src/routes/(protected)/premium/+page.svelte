@@ -1,9 +1,11 @@
 <script>
 	import { goto } from '$app/navigation';
+	import Goback from '$lib/Components/Goback.svelte';
 	import Icon from '@iconify/svelte';
 </script>
 
-<main class="flex min-h-dvh flex-col items-center justify-start gap-4 px-8 font-propmt">
+<Goback />
+<main class="flex min-h-dvh flex-col items-center justify-start gap-4 p-8 md:pt-0 font-propmt">
 	<div class="pt-10">
 		<div class="flex flex-col items-center justify-center gap-y-2">
 			<Icon icon="basil:diamond-outline" class="text-9xl text-primary-500" />

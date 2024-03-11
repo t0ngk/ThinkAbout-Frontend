@@ -4,7 +4,10 @@
 	import { dndzone } from 'svelte-dnd-action';
 	import { createDialog, melt } from '@melt-ui/svelte';
 	import { fade } from 'svelte/transition';
+	import { PUBLIC_API_URL } from '$env/static/public';
+	import { goto } from '$app/navigation';
 	import Input from '$lib/Components/Input.svelte';
+	import Goback from '$lib/Components/Goback.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -16,24 +19,37 @@
 		forceVisible: true
 	});
 
-	let choices = [
-		{
-			id: 1,
-			choice: 'Choice 1'
-		},
-		{
-			id: 2,
-			choice: 'Choice 2'
-		},
-		{
-			id: 3,
-			choice: 'Choice 3'
-		},
-		{
-			id: 4,
-			choice: 'Choice 4'
+	let choices = [];
+
+	let textModal = '';
+	const addChoice = () => {
+		choices = [...choices, { id: Math.random(), choice: textModal }];
+		textModal = '';
+		$open = false;
+	};
+
+	const removeChoice = (id) => {
+		choices = choices.filter((choice) => choice.id !== id);
+	};
+
+	let question = '';
+
+	const addQustion = async () => {
+		const res = await fetch(`${PUBLIC_API_URL}/question/create`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${localStorage.getItem('token')}`
+			},
+			body: JSON.stringify({ question, choices: choices.map((choice) => choice.choice)})
+		});
+		const data = await res.json();
+		if (res.ok) {
+			goto('/question/me')
+		} else {
+			console.log(data);
 		}
-	];
+	};
 
 	const flipDurationMs = 300;
 
@@ -48,20 +64,29 @@
 	}
 </script>
 
-<main class="flex min-h-dvh flex-col items-center justify-start gap-4 px-8 font-propmt">
+<Goback />
+<main class="flex min-h-dvh flex-col items-center justify-start gap-4 p-8 md:pt-0 font-propmt">
 	<h1 class="text-2xl font-semibold">Create Question</h1>
 	<h1 class="w-full">Question</h1>
-	<textarea class="w-full rounded-lg bg-neutral-100 p-4 text-neutral-500" cols="30" rows="3"
+	<textarea bind:value={question} class="w-full rounded-lg bg-neutral-100 p-4 text-neutral-500" cols="30" rows="3"
 	></textarea>
 	<h1 class="w-full">Choices</h1>
 	<div
-		class="h-96 w-full space-y-4 overflow-y-auto p-4 rounded-lg transition-all bg-neutral-100"
-		use:dndzone={{ items: choices, flipDurationMs , dropTargetClasses: ['bg-neutral-200'] ,dropTargetStyle: {outline: '0px solid transparent' }}}
+		class="h-96 w-full space-y-4 overflow-y-auto rounded-lg bg-neutral-100 p-4 transition-all"
+		use:dndzone={{
+			items: choices,
+			flipDurationMs,
+			dropTargetClasses: ['bg-neutral-200'],
+			dropTargetStyle: { outline: '0px solid transparent' }
+		}}
 		on:consider={handleDndConsider}
 		on:finalize={handleDndFinalize}
 	>
 		{#each choices as choice, index (choice.id)}
-			<div class="w-full focus:outline-none focus:shadow-lg rounded-lg" animate:flip={{ duration: flipDurationMs }}>
+			<div
+				class="w-full rounded-lg focus:shadow-lg focus:outline-none"
+				animate:flip={{ duration: flipDurationMs }}
+			>
 				<p class="text-primary-500">Choice {index + 1}</p>
 				<div class="flex w-full items-center rounded-lg bg-primary-200 pe-1">
 					<Icon icon="basil:move-solid" class="ml-4 text-2xl text-neutral-500" />
@@ -73,6 +98,7 @@
 					/>
 					<button
 						class="flex aspect-square h-10 items-center justify-center rounded-lg transition active:bg-primary-400 md:hover:bg-primary-400 md:active:bg-primary-500"
+						on:click={() => removeChoice(choice.id)}
 					>
 						<Icon icon="ph:trash-light" class="text-xl" />
 					</button>
@@ -89,6 +115,7 @@
 	</button>
 	<div class="flex w-full justify-end">
 		<button
+			on:click={addQustion}
 			class="block w-full rounded-xl bg-primary-500 px-4 py-2 text-white transition active:bg-primary-600 md:w-auto md:hover:bg-primary-600 md:active:bg-primary-700"
 			>Create</button
 		>
@@ -110,7 +137,7 @@
 		>
 			<h2 use:melt={$title} class="m-0 text-lg font-medium text-black">Create Choice</h2>
 
-			<Input label="Title" class="w-full" value="" />
+			<Input label="Title" class="w-full"  bind:value={textModal} />
 			<div class="mt-6 flex justify-end gap-4">
 				<button
 					use:melt={$close}
@@ -120,6 +147,7 @@
 					Cancel
 				</button>
 				<button
+				on:click={addChoice}
 					class="inline-flex h-8 items-center justify-center rounded-lg
                       bg-primary-500 px-4 font-medium leading-none text-white transition hover:bg-primary-600 active:bg-primary-700"
 				>

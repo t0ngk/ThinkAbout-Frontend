@@ -13,7 +13,7 @@
   $: value = $selected?.value
 
 	const {
-		elements: { trigger, menu, option, label },
+		elements: { trigger, menu, option },
 		states: { selectedLabel, open, selected },
 		helpers: { isSelected }
   } = createSelect<String>({
@@ -33,11 +33,6 @@
 		use:melt={$trigger}
 		aria-label="Year"
 	>
-		<!-- <label
-			class="m-0 block cursor-pointer select-none text-sm font-light text-neutral-300 transition"
-			class:text-primary-500={$open}
-			use:melt={$label}>Gender</label
-		> -->
 		{$selectedLabel || 'Year'}
 	</button>
 	{#if $open}

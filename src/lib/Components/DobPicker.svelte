@@ -3,13 +3,17 @@
 	import { fade } from 'svelte/transition';
 	import { CalendarDate } from '@internationalized/date';
 	import { twMerge } from 'tailwind-merge';
-	import Select from './Select.svelte';
 	import Icon from '@iconify/svelte';
 
 	let className = '';
 	export { className as class };
-	const today = new Date();
-	const yearLimitArray = Array.from({ length: 100 }, (_, i) => today.getFullYear() - i);
+	export let onChange = (value) => {};
+	export let year = new Date().getFullYear();
+	export let month = new Date().getMonth();
+	export let day = new Date().getDate();
+	let dateValue = new CalendarDate(year, month, day);
+
+	$: $value && onChange($value.toString());
 
 	const {
 		elements: {
@@ -30,9 +34,8 @@
 		options: { locale }
 	} = createDatePicker({
 		forceVisible: true,
-		defaultValue: new CalendarDate(today.getFullYear() - 13, today.getMonth(), today.getDate()),
-		maxValue: new CalendarDate(today.getFullYear() - 13, today.getMonth(), today.getDate()),
 		fixedWeeks: true,
+		defaultValue: dateValue,
 		preventDeselect: true
 	});
 </script>

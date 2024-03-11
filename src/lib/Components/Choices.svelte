@@ -5,14 +5,12 @@
 
 	const {
 		elements: { root, item, hiddenInput },
-		helpers: { isChecked }
-	} = createRadioGroup({
-		defaultValue: 'default'
-	});
+		helpers: { isChecked },
+		states: { value }
+	} = createRadioGroup();
 
-	export let options = '';
-	console.log(Boolean(options));
-	const optionsArr = ['default', 'comfortable', 'compact'];
+	export { value };
+	export let options = [];
 </script>
 
 <div
@@ -20,7 +18,7 @@
 	class="grid w-full grid-cols-1 gap-x-4 gap-y-2 data-[orientation=horizontal]:grid-cols-2 md:grid-cols-2"
 	aria-label="View density"
 >
-	{#each options ? options : optionsArr as option}
+	{#each options as option}
 		<button
 			use:melt={$item(option)}
 			class={`w-full rounded-lg p-4 text-start transition-all
