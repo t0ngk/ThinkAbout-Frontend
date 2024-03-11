@@ -10,39 +10,46 @@
 			<h1 class="text-3xl font-semibold">Premium Plan</h1>
 		</div>
 	</div>
-    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
-        <div
-            class="w-full rounded-2xl bg-primary-400 px-6 py-8 font-normal text-white transition"
-        >
-            <h1 class="text-xl">ThinkAbout Free</h1>
-            <p class="text-sm">Free</p>
-        </div>
-        <div
-            class="flex w-full flex-col justify-start rounded-2xl bg-primary-700 px-6 py-6 font-normal text-white"
-        >
-            <h1 class="text-xl">ThinkAbout Premium</h1>
-            <p class="text-sm">฿99.00 / month</p>
-            <div class="my-4 space-y-3">
-                <div class="flex flex-row">
-                    <Icon icon="icon-park-solid:correct" width="24" height="24" style="color: white" />
-                    <p class="ml-2">Unlimited access to all features</p>
-                </div>
-                <div class="flex flex-row">
-                    <Icon icon="icon-park-solid:correct" width="24" height="24" style="color: white" />
-                    <p class="ml-2">Unlimited access to all features</p>
-                </div>
-                <div class="flex flex-row">
-                    <Icon icon="icon-park-solid:correct" width="24" height="24" style="color: white" />
-                    <p class="ml-2">Unlimited access to all features</p>
-                </div>
-            </div>
-            <button
-                on:click={() => {
-                    goto('/premium/plan');
-                }}
-                class="block w-full self-center rounded-3xl bg-white py-3 font-semibold text-black transition active:bg-primary-400 md:w-[50%] md:hover:bg-primary-400 md:active:bg-primary-500"
-                >Get Started</button
-            >
-        </div>
-    </div>
+	<div class="grid w-full grid-cols-1 gap-x-4 gap-y-2 md:grid-cols-2">
+		<div class="w-full flex flex-col justify-between rounded-2xl bg-primary-400 p-6 font-normal text-white transition">
+			<div>
+				<h1 class="text-xl">ThinkAbout Free</h1>
+				<p class="text-sm">Free</p>
+			</div>
+			<button
+				on:click={() => {
+					goto('/premium/free');
+				}}
+				class="block w-full self-center rounded-3xl bg-white py-3 text-black transition active:bg-neutral-100 md:hover:bg-neutral-100 md:active:bg-neutral-200"
+				>Use Free Plan</button
+			>
+		</div>
+		<div
+			class="flex w-full flex-col justify-start rounded-2xl bg-primary-700 p-6 font-normal text-white"
+		>
+			<h1 class="text-xl">ThinkAbout Premium</h1>
+			<p class="text-sm">฿99.00 / month</p>
+			<div class="my-4 space-y-3">
+				<div class="flex flex-row">
+					<Icon icon="icon-park-solid:correct" width="24" height="24" style="color: white" />
+					<p class="ml-2">Unlimited access to all features</p>
+				</div>
+				<div class="flex flex-row">
+					<Icon icon="icon-park-solid:correct" width="24" height="24" style="color: white" />
+					<p class="ml-2">Unlimited access to all features</p>
+				</div>
+				<div class="flex flex-row">
+					<Icon icon="icon-park-solid:correct" width="24" height="24" style="color: white" />
+					<p class="ml-2">Unlimited access to all features</p>
+				</div>
+			</div>
+			<button
+				on:click={() => {
+					goto('/premium/plan');
+				}}
+				class="block w-full self-center rounded-3xl bg-white py-3 text-black transition active:bg-neutral-100 md:hover:bg-neutral-100 md:active:bg-neutral-200"
+				>Get Started</button
+			>
+		</div>
+	</div>
 </main>
