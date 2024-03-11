@@ -61,6 +61,9 @@ devDependencies:
   svelte-check:
     specifier: ^3.6.0
     version: 3.6.6(postcss-load-config@5.0.3)(postcss@8.4.35)(svelte@4.2.12)
+  svelte-dnd-action:
+    specifier: ^0.9.40
+    version: 0.9.40(svelte@4.2.12)
   tailwindcss:
     specifier: ^3.3.6
     version: 3.4.1
@@ -1721,6 +1724,14 @@ packages:
       - sass
       - stylus
       - sugarss
+    dev: true
+
+  /svelte-dnd-action@0.9.40(svelte@4.2.12):
+    resolution: {integrity: sha512-nFRufbbIFVhrI82QKe80AtESLDyK+5wmODDVhenZEIwxi1XagJReO1iXjbTcgogV0pYwv2PM1+lpAjYk+k7x7g==}
+    peerDependencies:
+      svelte: '>=3.23.0'
+    dependencies:
+      svelte: 4.2.12
     dev: true
 
   /svelte-hmr@0.15.3(svelte@4.2.12):
