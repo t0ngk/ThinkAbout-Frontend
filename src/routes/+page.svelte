@@ -18,18 +18,19 @@
 <main class="flex min-h-dvh flex-col items-center justify-start p-8 font-propmt">
 	<NavBar />
 	<div class="mb-4 flex w-full items-center justify-between text-2xl text-primary-500 md:hidden">
-		<p class="font-semibold text-3xl">Welcome back, USERNAME</p>
+		<p class="text-3xl font-semibold">Welcome back, USERNAME</p>
 		<button>
 			<Icon class="text-7xl" icon="healthicons:ui-user-profile" />
 		</button>
 	</div>
+	<h1 class="text-4xl font-bold text-primary-500 text-start w-full my-4 hidden md:block">Welcome back, USERNAME</h1>
 	<div class="w-full space-y-2">
-		<div class="w-full flex justify-between items-center">
+		<div class="flex w-full items-center justify-between">
 			<p class="text-start text-xl">Questions</p>
 			<button
-			class="md:block hidden w-full rounded-xl bg-primary-500 px-4 py-2 text-white transition active:bg-primary-600 md:w-auto md:hover:bg-primary-600 md:active:bg-primary-700"
-			>Create</button
-	>
+				class="hidden w-full rounded-xl bg-primary-500 px-4 py-2 text-white transition active:bg-primary-600 md:block md:w-auto md:hover:bg-primary-600 md:active:bg-primary-700"
+				>Create</button
+			>
 		</div>
 		<div class="grid w-full grid-cols-1 gap-x-4 gap-y-2 md:grid-cols-2">
 			{#each questions as question}
