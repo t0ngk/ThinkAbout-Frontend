@@ -15,8 +15,7 @@
 	export let data;
 </script>
 
-<main class="flex min-h-dvh flex-col items-center justify-start p-8 font-propmt">
-	<NavBar />
+<main class="flex min-h-dvh flex-col items-center justify-start px-8 font-propmt">
 	<div class="mb-4 flex w-full items-center justify-between text-2xl text-primary-500 md:hidden">
 		<p class="text-3xl font-semibold">Welcome back, USERNAME</p>
 		<button>

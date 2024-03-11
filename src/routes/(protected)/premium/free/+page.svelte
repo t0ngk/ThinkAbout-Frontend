@@ -1,13 +1,7 @@
 <script>
-	// @ts-nocheck
-
-	import Icon from '@iconify/svelte';
-	import Choices from '$lib/Components/Choices.svelte';
-
-	let choices = ['Creadit/Debit Card', 'Paypal', 'True Wallet', 'Prompt Pay'];
 </script>
 
-<main class="flex min-h-dvh flex-col items-center justify-start gap-4 p-8 font-propmt">
+<main class="flex min-h-dvh flex-col items-center justify-start gap-4 px-8 font-propmt">
 	<div class="flex w-full flex-row items-center justify-between">
 		<h1 class="text-3xl font-semibold">Free Plan</h1>
 		<a href="/premium" class="border-b-2 text-[#A5A5A5] hover:text-black">

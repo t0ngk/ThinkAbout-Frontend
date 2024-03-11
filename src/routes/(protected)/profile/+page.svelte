@@ -6,7 +6,7 @@
 <div class="absolute">
 	<Button />
 </div>
-<main class="flex min-h-dvh w-full flex-col items-center justify-start gap-4 p-8 font-propmt">
+<main class="flex min-h-dvh w-full flex-col items-center justify-start gap-4 px-8 font-propmt">
 	<h1 class="text-2xl font-semibold">Profile</h1>
 	<div class="grid grid-cols-1 justify-items-center gap-4 p-4 text-center">
 		<Icon icon="teenyicons:user-circle-solid" width="110" height="110" class="text-primary-500" />

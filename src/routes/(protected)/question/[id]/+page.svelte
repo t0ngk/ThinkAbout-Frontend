@@ -9,7 +9,7 @@
 <div class="absolute">
 	<Button/>
 </div>
-<main class="flex min-h-dvh flex-col items-center justify-start gap-4 p-8 font-propmt">
+<main class="flex min-h-dvh flex-col items-center justify-start gap-4 px-8 font-propmt">
 	<h1 class="text-2xl font-semibold text-primary-600">Questions</h1>
 	<p>{title}</p>
 	<Choices />

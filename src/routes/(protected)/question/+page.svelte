@@ -48,8 +48,8 @@
 	}
 </script>
 
-<main class="flex min-h-dvh flex-col items-center justify-start gap-4 p-8 font-propmt">
-	<h1 class="text-2xl font-semibold">Edit Question</h1>
+<main class="flex min-h-dvh flex-col items-center justify-start gap-4 px-8 font-propmt">
+	<h1 class="text-2xl font-semibold">Create Question</h1>
 	<h1 class="w-full">Question</h1>
 	<textarea class="w-full rounded-lg bg-neutral-100 p-4 text-neutral-500" cols="30" rows="3"
 	></textarea>

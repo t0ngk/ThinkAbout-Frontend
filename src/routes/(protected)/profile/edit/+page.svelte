@@ -7,7 +7,7 @@
 </script>
 
 <Button/>
-<main class="flex min-h-dvh flex-col items-center justify-start gap-4 p-8 font-propmt">
+<main class="flex min-h-dvh flex-col items-center justify-start gap-4 px-8 font-propmt">
 	<h1 class="text-2xl font-semibold ">Edit Profile</h1>
 	<div class="flex w-full justify-center gap-2">
 		<Icon icon="teenyicons:user-circle-solid" class="text-primary-500 text-9xl" />
