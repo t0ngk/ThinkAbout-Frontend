@@ -18,8 +18,7 @@
 	<div class="w-full space-y-2 md:w-auto">
 		<button
 			class="block w-full rounded-xl bg-primary-500 py-2 text-white transition active:bg-primary-600 md:w-96 md:hover:bg-primary-600 md:active:bg-primary-700"
-			>Login</button
-		>
+			>Login</button>
 		<div class="text-center text-sm">
 			<p class="text-neutral-300">
 				Don't have an account? <span
