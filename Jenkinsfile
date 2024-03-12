@@ -48,7 +48,7 @@ pipeline {
                     // Pull the Docker image from Docker Hub
                     sh 'docker pull $DOCKER_IMAGE'
                     // Run the Docker container
-                    sh 'docker run -d --name taf -p 8085:8080 $DOCKER_IMAGE'
+                    sh 'docker run -d --name taf -p 8087:3000 $DOCKER_IMAGE'
                 }
             }
         }
