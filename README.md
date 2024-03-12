@@ -1,4 +1,4 @@
-# create-svelte let deploy
+# create-svelte let deploy again
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
