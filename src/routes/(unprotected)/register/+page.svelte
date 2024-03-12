@@ -1,5 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
+	import { PUBLIC_API_URL } from '$env/static/public';
 	import DobPicker from '$lib/Components/DobPicker.svelte';
 	import GenderSelection from '$lib/Components/GenderSelection.svelte';
 	import Input from '$lib/Components/Input.svelte';
@@ -25,7 +26,7 @@
 	});
 
 	const register = async () => {
-		const response = await fetch('http://localhost:3000/auth/register', {
+		const response = await fetch(`${PUBLIC_API_URL}/auth/register`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
