@@ -5,24 +5,28 @@
 	import Input from '$lib/Components/Input.svelte';
 	import GenderSelection from '$lib/Components/GenderSelection.svelte';
 	import userStore from '$lib/stores/userStore.js';
+	import { onMount } from 'svelte';
 
 	let name = $userStore?.name;
 	let email = $userStore?.email;
 	let gender;
-	$: if (gender) {
-		gender?.set({
-			value: $userStore?.Gender,
-			label: $userStore?.Gender,
+
+	onMount(() => {
+		$gender = {
+			value: $userStore.Gender,
+			label: $userStore.Gender,
 			disabled: false
-		});
-	}
+		}
+	});
+
+	$: console.log($gender?.value)
 
 	const updateProfile = async () => {
         const token = localStorage.getItem('token');
 		const data = {
 			name,
 			email,
-			Gender: $gender?.value
+			gender: $gender?.value
 		};
         const res = await fetch(`${PUBLIC_API_URL}/auth/me`, {
             method: 'PUT',

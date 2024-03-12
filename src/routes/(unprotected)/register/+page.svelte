@@ -13,17 +13,10 @@
 	let email = '';
 	let password = '';
 	let confirmPassword = '';
-	let gender = '';
+	let gender;
 	let dob = '';
 
-	$: console.log({
-		name,
-		email,
-		password,
-		confirmPassword,
-		gender,
-		dob
-	});
+	$: console.log($gender?.value)
 
 	const register = async () => {
 		const response = await fetch(`${PUBLIC_API_URL}/auth/register`, {
@@ -36,7 +29,7 @@
 				email,
 				password,
 				confirmPassword,
-				gender,
+				gender: $gender.value,
 				dateOfBirth: dob
 			})
 		});
@@ -84,9 +77,7 @@
 		/>
 		<GenderSelection
 			class="w-full md:w-96"
-			onChange={(value) => {
-				gender = value;
-			}}
+			bind:selected={gender}
 		/>
 		<DobPicker
 			onChange={(value) => {
