@@ -3,6 +3,7 @@
 	import DobPicker from '$lib/Components/DobPicker.svelte';
 	import GenderSelection from '$lib/Components/GenderSelection.svelte';
 	import Input from '$lib/Components/Input.svelte';
+	import { addToast } from '$lib/Components/Toast.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -42,6 +43,13 @@
 		if (response.ok) {
 			localStorage.setItem('token', data.token);
 			goto('/');
+		} else {
+			addToast({
+				data: {
+					message: data.message,
+					type: 'error'
+				}
+			});
 		}
 	};
 </script>

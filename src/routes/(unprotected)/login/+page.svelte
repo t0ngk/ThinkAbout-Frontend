@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import Input from '$lib/Components/Input.svelte';
 	import { PUBLIC_API_URL } from '$env/static/public';
+	import { addToast } from '$lib/Components/Toast.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -22,7 +23,12 @@
 			localStorage.setItem('token', data.token);
 			goto('/')
 		} else {
-			alert(data.message);
+			addToast({
+				data: {
+					message: data.message,
+				type: 'error'
+				}
+			});
 		}
 	};
 </script>

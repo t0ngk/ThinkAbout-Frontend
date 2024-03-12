@@ -1,5 +1,6 @@
 import { browser } from '$app/environment';
 import { PUBLIC_API_URL } from '$env/static/public';
+import { addToast } from '$lib/Components/Toast.svelte';
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ fetch }) {
@@ -14,6 +15,13 @@ export async function load({ fetch }) {
 		console.log('data', data);
 		if (res.ok) {
 			questions = data;
+		} else {
+			addToast({
+				data: {
+					message: 'Error fetching questions',
+					type: 'error'
+				}
+			})
 		}
 	}
 	return {

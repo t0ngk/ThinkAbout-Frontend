@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { PUBLIC_API_URL } from '$env/static/public';
 	import Goback from '$lib/Components/Goback.svelte';
+	import { addToast } from '$lib/Components/Toast.svelte';
 
 	const buy = async () => {
 		const token = localStorage.getItem('token');
@@ -15,9 +16,15 @@
 		const data = await res.json();
 		if (res.ok) {
 			console.log(data);
-			goto('/');
+			window.location.href = '/';
 		} else {
 			console.log(data);
+			addToast({
+				data: {
+					message: data.message,
+					type: 'error'
+				}
+			});
 		}
 	};
 </script>

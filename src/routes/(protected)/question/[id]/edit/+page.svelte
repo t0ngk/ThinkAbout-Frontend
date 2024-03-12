@@ -8,6 +8,7 @@
 	import { PUBLIC_API_URL } from '$env/static/public';
 	import { goto } from '$app/navigation';
 	import Goback from '$lib/Components/Goback.svelte';
+	import { addToast } from '$lib/Components/Toast.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -48,8 +49,20 @@
 		const data = await res.json();
 		if (res.ok) {
 			goto('/question/me')
+			addToast({
+				data: {
+					message: 'Question updated',
+					type: 'success'
+				}
+			});
 		} else {
 			console.log(data);
+			addToast({
+				data: {
+					message: data.message,
+					type: 'error'
+				}
+			});
 		}
 	};
 
@@ -64,8 +77,20 @@
 		const data = await res.json();
 		if (res.ok) {
 			goto('/question/me')
+			addToast({
+				data: {
+					message: 'Question deleted',
+					type: 'success'
+				}
+			});
 		} else {
 			console.log(data);
+			addToast({
+				data: {
+					message: data.message,
+					type: 'error'
+				}
+			});
 		}
 	};
 

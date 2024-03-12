@@ -6,6 +6,7 @@
 	import { PUBLIC_API_URL } from '$env/static/public';
 	import { goto } from '$app/navigation';
 	import Goback from '$lib/Components/Goback.svelte';
+	import { addToast } from '$lib/Components/Toast.svelte';
 
 	let choices = ['Creadit/Debit Card', 'Paypal', 'True Wallet', 'Prompt Pay'];
 	const buy = async () => {
@@ -20,9 +21,15 @@
 		const data = await res.json();
 		if (res.ok) {
 			console.log(data);
-			goto('/');
+			window.location.href = '/';
 		} else {
 			console.log(data);
+			addToast({
+				data: {
+					message: data.message,
+					type: 'error'
+				}
+			});
 		}
 	};
 </script>

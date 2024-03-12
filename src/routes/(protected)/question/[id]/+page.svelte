@@ -3,6 +3,7 @@
 	import Choices from '$lib/Components/Choices.svelte';
 	import Button from '$lib/Components/Goback.svelte';
 	import Thankyou from '$lib/Components/Thankyou.svelte';
+	import { addToast } from '$lib/Components/Toast.svelte';
 	/** @type {import('./$types').PageData} */
 	export let data;
 	const question = data.question;
@@ -25,6 +26,12 @@
 			isSent = true;
 		} else {
 			console.log(data);
+			addToast({
+				data: {
+					message: data.message,
+					type: 'error'
+				}
+			});
 		}
 	};
 </script>
