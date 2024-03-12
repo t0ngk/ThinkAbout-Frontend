@@ -35,7 +35,7 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 ################################################################################
 # Create a stage for building the application.
 FROM deps as build
-ENV PUBLIC_API_URL="http://localhost:8080"
+ENV PUBLIC_API_URL="http://localhost:8085"
 
 # Download additional development dependencies before building, as some projects require
 # "devDependencies" to be installed to build. If you don't need this, remove this step.
